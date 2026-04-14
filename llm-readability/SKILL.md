@@ -1,3 +1,14 @@
+---
+name: llm-readability
+description: >
+  Analyse a website project for LLM readability and implement llms.txt, robots.txt,
+  and sitemap.xml features to make the site discoverable by AI systems (Claude, ChatGPT,
+  Perplexity, Google AI Overviews). Use when the user asks about making their site
+  discoverable by AI, LLM-friendly, or mentions llms.txt.
+disable-model-invocation: true
+argument-hint: "[url-or-path]"
+---
+
 Analyse this website project for LLM readability and implement all necessary features to make it discoverable by AI systems (Claude, ChatGPT, Perplexity, Google AI Overviews). Follow all four phases below.
 
 ## Phase 1: Analyse Current State

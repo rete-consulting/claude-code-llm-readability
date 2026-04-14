@@ -1,6 +1,6 @@
-# /llm-readability — Claude Code Slash Command
+# /llm-readability — Claude Code Agent Skill
 
-A Claude Code custom slash command that analyses any website project for LLM readability and implements all necessary features to make it discoverable by AI systems (Claude, ChatGPT, Perplexity, Google AI Overviews).
+A Claude Code [Agent Skill](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) that analyses any website project for LLM readability and implements all necessary features to make it discoverable by AI systems (Claude, ChatGPT, Perplexity, Google AI Overviews).
 
 ## What It Does
 
@@ -22,23 +22,31 @@ When you run `/llm-readability` in Claude Code, it:
 
 ## Installation
 
-### Option A: Project-level (recommended for teams)
-
-Copy into your project's `.claude/commands/` directory:
+### Option A: Personal skill (available in all your projects)
 
 ```bash
-mkdir -p .claude/commands
-curl -o .claude/commands/llm-readability.md https://raw.githubusercontent.com/rete-consulting/claude-code-llm-readability/main/llm-readability.md
+mkdir -p ~/.claude/skills
+git clone https://github.com/rete-consulting/claude-code-llm-readability.git ~/.claude/skills/llm-readability-repo
+ln -s ~/.claude/skills/llm-readability-repo/llm-readability ~/.claude/skills/llm-readability
 ```
 
-Then commit it. Anyone on the team can use `/llm-readability` in the project.
-
-### Option B: User-level (available in all projects)
+Or without git:
 
 ```bash
-mkdir -p ~/.claude/commands
-curl -o ~/.claude/commands/llm-readability.md https://raw.githubusercontent.com/rete-consulting/claude-code-llm-readability/main/llm-readability.md
+mkdir -p ~/.claude/skills/llm-readability
+curl -o ~/.claude/skills/llm-readability/SKILL.md \
+  https://raw.githubusercontent.com/rete-consulting/claude-code-llm-readability/main/llm-readability/SKILL.md
 ```
+
+### Option B: Project-level (recommended for teams)
+
+```bash
+mkdir -p .claude/skills/llm-readability
+curl -o .claude/skills/llm-readability/SKILL.md \
+  https://raw.githubusercontent.com/rete-consulting/claude-code-llm-readability/main/llm-readability/SKILL.md
+```
+
+Then commit `.claude/skills/` to version control. Anyone on the team can use `/llm-readability`.
 
 ### Usage
 
@@ -70,7 +78,7 @@ The [llms.txt standard](https://llmstxt.org) (proposed by Jeremy Howard, Septemb
 
 **Adopted by:** Anthropic, Stripe, Cloudflare, Vercel, Supabase, Shopify, Hugging Face, and 844K+ other websites.
 
-### AI Crawlers Supported
+### AI Crawlers Configured
 
 This skill configures `robots.txt` for all major AI crawlers:
 
@@ -100,6 +108,10 @@ The GEO (Generative Engine Optimisation) readiness score is based on:
 ## Works With
 
 Any web project: React, Next.js, Vue, Nuxt, Astro, Svelte, static HTML, Vite, Webpack — the skill auto-detects the framework and static file directory.
+
+## Skill Format
+
+This is a Claude Code [Agent Skill](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) following the [Agent Skills](https://agentskills.io) open standard. It uses a `SKILL.md` file with YAML frontmatter for metadata and markdown content for instructions.
 
 ## Credits
 
